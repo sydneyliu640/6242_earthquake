@@ -86,49 +86,61 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Input
                         </div>
                         <div class="panel-body">
-                            <form id = "frm1" role="form">
-                                <div id = "frm" class="form-group">
-                                    <label>Earthquake Intensity</label>
-                                    <input class="form-control" placeholder="Enter number">
-                                </div>
-                                <div class="form-group">
-                                    <label>Earthquake Depth</label>
-                                    <input class="form-control" placeholder="Enter number">
-                                </div>
-                                <div class="form-group">
-                                    <label>Population</label>
-                                    <input class="form-control" placeholder="Enter number">
-                                </div>
-                                <div class="form-group">
-                                    <label>Average Income ($ per month)</label>
-                                    <input class="form-control" placeholder="Enter number">
-                                </div>
-                                <div class="form-group">
-                                    <label># of Hospital</label>
-                                    <input class="form-control" placeholder="Enter number">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label>Radio Buttons</label>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Linear Regression
-                                        </label>
+                            <form id = "forms" role="form">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Earthquake Intensity</label>
+                                        <input class="form-control" placeholder="Enter number" value="4">
                                     </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Logistic Regression
-                                        </label>
+                                    <div class="form-group">
+                                        <label>Earthquake Depth</label>
+                                        <input class="form-control" placeholder="Enter number" value="6">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Population</label>
+                                        <input class="form-control" placeholder="Enter number" value="10000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Average Income ($ per month)</label>
+                                        <input class="form-control" placeholder="Enter number" value="8000">
                                     </div>
                                 </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label># of Hospital</label>
+                                        <input class="form-control" placeholder="Enter number" value="30">
+                                    </div>
+                                    <div class="form-group">
+                                        <label># of Bed</label>
+                                        <input class="form-control" placeholder="Enter number" value="200">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Rating of Hospital</label>
+                                        <input class="form-control" placeholder="Enter number" value="3.5">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Radio Buttons</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Linear Regression
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Logistic Regression
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
                                 
-                                <button class="btn btn-outline btn-primary btn-lg btn-block" onclick="msg()">Launch Modal</button>
+                                <button type="button" class="btn btn-outline btn-primary btn-lg btn-block" onclick="report()">Launch Modal</button>
                             </form>
                         </div>
                         <!-- /.panel-body -->
@@ -136,23 +148,7 @@
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-12 -->
-                <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Output
-                        </div>
-                        <div class="panel-body">
-                            <form role="form">
-                                <div class="form-group">
-                                    <label>Estimate Loss ($)</label>
-                                    <input class="form-control">
-                                </div>
-                            </form>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
+                
             </div>
             <!-- /.row -->
         </div>
@@ -174,14 +170,69 @@
     <script src="../dist/js/sb-admin-2.js"></script>
 
     <script>
-    function msg() {
-        var x = document.getElementById("frm1");
+    function report() {
         var text = "";
-        var i;
-        text = parseInt(x.elements[0].value) + parseInt(x.elements[0].value);
-        for (i = 0; i < x.length ;i++) {
-            text += x.elements[i].value + "<br>";
+        var x = document.getElementById("forms");
+        var a_inter = -2.784e4 - 5.781;
+        var a_rating = -6.21e3;
+        var a_bed = -8.867e1;
+        var a_hosp = 8.226e3;
+        var a_income = 1.198;
+        var a_population = 9.929e-2;
+        var a_energy = 4.379e-19;
+        var a_mag = 3.45;
+        var a_dep = -2.073e2;
+
+        var mag = parseFloat(x.elements[0].value);
+        var energy = Math.pow(10,11.8+1.5*mag);
+        var dep = parseFloat(x.elements[1].value);
+        var population = parseFloat(x.elements[2].value);
+        var income = parseFloat(x.elements[3].value);
+        var hosp = parseFloat(x.elements[4].value);
+        var bed = parseFloat(x.elements[5].value);
+        var rating = parseFloat(x.elements[6].value);
+        var flag = document.getElementById("optionsRadios1");
+        var loss = 0;
+
+
+
+        if(flag.checked) loss = a_inter + a_rating*rating + a_bed*bed + a_hosp*hosp + a_income*income + a_population*population + a_energy*energy + a_mag*mag + a_dep*dep;
+        else {
+            if(population <= 55371) loss = 0.1821*mag + 0.0123*population + 0.09*income + 11.2077*hosp - 403.7635*rating - 1537.4167;
+            else if(population <= 717543.5 && rating <= 4.267 && income <= 39589.5) loss = 0.3958*mag + 0.0256*population + 0.2662*income - 1553.5613*rating + 3189.8282;
+            else if(population <= 1013891 && rating > 4.229) loss = -0.468 - 223.0859*dep + 0.0221*population + 0.3592*income - 1352.1817*rating - 3112.7468;
+            else if(population <= 464780) loss = 
+    0.7536 
+    - 489.8045 *  dep 
+    + 0.0363 *  population 
+    + 0.5705 *  income 
+    - 2486.1573 *  rating 
+    + 6981.4722;
+            else if(population <= 3036975 && population > 1497614) loss = 
+    1.9996 
+    - 5724.324 *  dep 
+    + 0.0412 *  population 
+    + 2.196 *  income 
+    + 103055.9546;
+            else if(population <= 3143608.5 && income <= 52221) loss = 
+    0.0422 *  population 
+    + 2.7836 *  income 
+    - 104166.9192;
+            else if(rating > 3.657 && rating <= 4.072) loss = 
+    -16.8598 
+    + 0.017 *  population 
+    - 35260.2327 *  rating 
+    + 249411.8559;
+            else if(population <= 6497892.5) loss = 
+    74.9082 
+    + 0.0742 *  population 
+    + 30760.06;
+            else loss = 
+    984.2182  
+    + 618693.2575;
         }
+
+        text = "The estimated loss of this earthquake is $" + parseInt(loss);
         alert(text);
     }
 </script>
