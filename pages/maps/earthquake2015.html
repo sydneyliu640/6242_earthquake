@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CSV to Heatmap</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    </head>
+<body>
+<h> 2015 Earthquakes in Heatmap</h>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="http://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
+<div id="map" style="width: 100%; height: 800px"></div>
+<script type="text/javascript"charset="utf-8">
+//let's read the csv file. if this is finished we call the function to show it on the map.
+
+$(document).ready(function() {
+  $.ajax({
+    type: "GET",
+    url: "datasets/earthquake2015.csv",
+    dataType: "text",
+    success: function(data){displayData(data)}
+  });
+});
+
+function displayData(Text){
+  console.log(Text)
+  data = $.csv.toObjects(Text);
+  var map = L.map('map').setView([0,-30], 2);
+  var OpenStreetMap_BlackAndWhite = L.tileLayer('http://{s}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+  }).addTo(map);
+  data_array= [0,0,0]; //create it before filling 
+  for (i = 0; i < data.length; i++) {
+    data_array[i] = [parseFloat(data[i].latitude), parseFloat(data[i].longitude), parseFloat(data[i].mag)]; // if values are marked as string in the object else:
+//  data_array[i] = [data[i].lat,data[i].lon,data[i].val];
+};
+  var heat = L.heatLayer(data_array,{
+            radius: 12,
+            blur: 10, 
+            maxZoom: 6,
+        }).addTo(map);
+  };
+
+</script>
+</body>
+</html>
