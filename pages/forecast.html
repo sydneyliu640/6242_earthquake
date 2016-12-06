@@ -89,14 +89,14 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Input
+                            Try the model
                         </div>
                         <div class="panel-body">
                             <form id = "forms" role="form">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Earthquake Intensity</label>
-                                        <input class="form-control" placeholder="Enter number" value="4">
+                                        <input class="form-control" placeholder="Enter number" value="6">
                                     </div>
                                     <div class="form-group">
                                         <label>Earthquake Depth</label>
@@ -125,22 +125,10 @@
                                         <input class="form-control" placeholder="Enter number" value="3.5">
                                     </div>
                                     
-                                    <div class="form-group">
-                                        <label>Radio Buttons</label>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Linear Regression
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Logistic Regression
-                                            </label>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 
-                                <button type="button" class="btn btn-outline btn-primary btn-lg btn-block" onclick="report()">Launch Modal</button>
+                                <button type="button" class="btn btn-outline btn-primary btn-lg btn-block" onclick="report()">Launch Model</button>
                             </form>
                         </div>
                         <!-- /.panel-body -->
@@ -148,7 +136,88 @@
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-12 -->
-                
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Analysis of regression models
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-pills">
+                                <li class="active"><a href="#Linear-pills" data-toggle="tab">Linear Regression</a>
+                                </li>
+                                <li><a href="#Neural-pills" data-toggle="tab">Neural Network</a>
+                                </li>
+                                <li><a href="#Support-pills" data-toggle="tab">Support Vector Machine</a>
+                                </li>
+
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="Linear-pills">
+                                    <h4>Linear Regression</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                                <div class="tab-pane fade" id="Neural-pills">
+                                    <h4>Random Forest</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                                <div class="tab-pane fade" id="Support-pills">
+                                    <h4>Support Vector Machine</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Analysis of classification models
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-pills">
+                                <li><a href="#Random-pills" data-toggle="tab">Random Forest</a>
+                                </li>
+                                <li><a href="#Decision-pills" data-toggle="tab">Decision Tree</a>
+                                </li>
+                                <li><a href="#Nearest-pills" data-toggle="tab">K-Nearest Neighbors</a>
+                                </li>
+                                <li><a href="#Naive-pills" data-toggle="tab">Naive Bayes</a>
+                                </li>
+
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="Random-pills">
+                                    <h4>Random Forest</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                                <div class="tab-pane fade" id="Decision-pills">
+                                    <h4>Decision Tree</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                                <div class="tab-pane fade" id="Nearest-pills">
+                                    <h4>K-Nearest Neighbors</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                                <div class="tab-pane fade" id="Naive-pills">
+                                    <h4>Naive Bayes</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
             </div>
             <!-- /.row -->
         </div>
@@ -191,46 +260,8 @@
         var hosp = parseFloat(x.elements[4].value);
         var bed = parseFloat(x.elements[5].value);
         var rating = parseFloat(x.elements[6].value);
-        var flag = document.getElementById("optionsRadios1");
-        var loss = 0;
 
-
-
-        if(flag.checked) loss = a_inter + a_rating*rating + a_bed*bed + a_hosp*hosp + a_income*income + a_population*population + a_energy*energy + a_mag*mag + a_dep*dep;
-        else {
-            if(population <= 55371) loss = 0.1821*mag + 0.0123*population + 0.09*income + 11.2077*hosp - 403.7635*rating - 1537.4167;
-            else if(population <= 717543.5 && rating <= 4.267 && income <= 39589.5) loss = 0.3958*mag + 0.0256*population + 0.2662*income - 1553.5613*rating + 3189.8282;
-            else if(population <= 1013891 && rating > 4.229) loss = -0.468 - 223.0859*dep + 0.0221*population + 0.3592*income - 1352.1817*rating - 3112.7468;
-            else if(population <= 464780) loss = 
-    0.7536 
-    - 489.8045 *  dep 
-    + 0.0363 *  population 
-    + 0.5705 *  income 
-    - 2486.1573 *  rating 
-    + 6981.4722;
-            else if(population <= 3036975 && population > 1497614) loss = 
-    1.9996 
-    - 5724.324 *  dep 
-    + 0.0412 *  population 
-    + 2.196 *  income 
-    + 103055.9546;
-            else if(population <= 3143608.5 && income <= 52221) loss = 
-    0.0422 *  population 
-    + 2.7836 *  income 
-    - 104166.9192;
-            else if(rating > 3.657 && rating <= 4.072) loss = 
-    -16.8598 
-    + 0.017 *  population 
-    - 35260.2327 *  rating 
-    + 249411.8559;
-            else if(population <= 6497892.5) loss = 
-    74.9082 
-    + 0.0742 *  population 
-    + 30760.06;
-            else loss = 
-    984.2182  
-    + 618693.2575;
-        }
+        var loss = a_inter + a_rating*rating + a_bed*bed + a_hosp*hosp + a_income*income + a_population*population + a_energy*energy + a_mag*mag + a_dep*dep;
 
         text = "The estimated loss of this earthquake is $" + parseInt(loss);
         alert(text);
